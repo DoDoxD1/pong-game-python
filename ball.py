@@ -1,5 +1,6 @@
 from turtle import Turtle
-import random
+ALIGNMENT = "center"
+FONT = ("Arial", 24, "normal")
 
 
 class Ball(Turtle):
@@ -28,3 +29,14 @@ class Ball(Turtle):
     def detect_wall_collision(self):
         if self.ycor() > 280 or self.ycor() < -280:
             self.bounce_y()
+
+    def detect_left_miss(self):
+        if self.xcor() > 360:
+            self.goto(0, 0)
+            self.bounce_x()
+
+    def detect_right_miss(self):
+        if self.xcor() < -360:
+            self.goto(0, 0)
+            self.bounce_x()
+

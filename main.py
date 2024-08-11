@@ -26,12 +26,15 @@ screen.onkey(key="s", fun=right_paddle.down)
 # create a ball in center of the screen
 ball = Ball()
 
-# checking if game is on
 game_on = True
+
+# checking if game is on
 while game_on:
-    ball.move()
     time.sleep(0.1)
     screen.update()
+    ball.detect_left_miss()
+    ball.detect_right_miss()
+    ball.move()
     ball.detect_wall_collision()
     left_paddle.detect_collision(ball)
     right_paddle.detect_collision(ball)
