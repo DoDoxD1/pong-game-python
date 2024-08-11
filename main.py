@@ -4,6 +4,7 @@ from ball import Ball
 from scoreboard import ScoreBoard
 import time
 
+
 turtle = Turtle()
 # screen setup
 screen = Screen()
@@ -26,14 +27,14 @@ screen.onkey(key="s", fun=right_paddle.down)
 
 # create a ball in center of the screen
 ball = Ball()
+screen.onkey(key="c", fun=ball.quit_game)
 
 # create a scoreboard
 scoreboard = ScoreBoard()
 
-game_on = True
 
 # checking if game is on
-while game_on:
+while ball.game_on:
     time.sleep(0.1)
     screen.update()
     ball.detect_left_miss(scoreboard)

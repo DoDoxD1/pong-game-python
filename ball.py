@@ -1,5 +1,8 @@
 from turtle import Turtle
 
+ALIGNMENT = "center"
+FONT = ("Courier", 24, "normal")
+
 
 class Ball(Turtle):
     def __init__(self):
@@ -7,6 +10,7 @@ class Ball(Turtle):
         self.x = 10
         self.y = 10
         self.set_up()
+        self.game_on = True
 
     def set_up(self):
         self.color("white")
@@ -39,3 +43,9 @@ class Ball(Turtle):
             self.goto(0, 0)
             self.bounce_x()
             scoreboard.l_point()
+
+    def quit_game(self):
+        self.game_on = False
+        self.hideturtle()
+        self.goto(0, 0)
+        self.write("Game Over.", align=ALIGNMENT, font=FONT)
