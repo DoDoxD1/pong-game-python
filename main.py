@@ -1,6 +1,7 @@
 from turtle import Turtle, Screen
 from paddle import Paddle
 from ball import Ball
+from scoreboard import ScoreBoard
 import time
 
 turtle = Turtle()
@@ -26,14 +27,17 @@ screen.onkey(key="s", fun=right_paddle.down)
 # create a ball in center of the screen
 ball = Ball()
 
+# create a scoreboard
+scoreboard = ScoreBoard()
+
 game_on = True
 
 # checking if game is on
 while game_on:
     time.sleep(0.1)
     screen.update()
-    ball.detect_left_miss()
-    ball.detect_right_miss()
+    ball.detect_left_miss(scoreboard)
+    ball.detect_right_miss(scoreboard)
     ball.move()
     ball.detect_wall_collision()
     left_paddle.detect_collision(ball)

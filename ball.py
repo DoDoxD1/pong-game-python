@@ -1,6 +1,4 @@
 from turtle import Turtle
-ALIGNMENT = "center"
-FONT = ("Arial", 24, "normal")
 
 
 class Ball(Turtle):
@@ -30,13 +28,14 @@ class Ball(Turtle):
         if self.ycor() > 280 or self.ycor() < -280:
             self.bounce_y()
 
-    def detect_left_miss(self):
+    def detect_left_miss(self, scoreboard):
         if self.xcor() > 360:
             self.goto(0, 0)
             self.bounce_x()
+            scoreboard.r_point()
 
-    def detect_right_miss(self):
+    def detect_right_miss(self, scoreboard):
         if self.xcor() < -360:
             self.goto(0, 0)
             self.bounce_x()
-
+            scoreboard.l_point()
