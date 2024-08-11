@@ -11,6 +11,7 @@ class Ball(Turtle):
         self.y = 10
         self.set_up()
         self.game_on = True
+        self.ball_speed = 0.1
 
     def set_up(self):
         self.color("white")
@@ -27,7 +28,6 @@ class Ball(Turtle):
 
     def bounce_x(self):
         self.x *= -1
-
     def detect_wall_collision(self):
         if self.ycor() > 280 or self.ycor() < -280:
             self.bounce_y()
